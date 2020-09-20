@@ -79,26 +79,22 @@ python manage.py runserver
 ```
 
 
-## Command line options
+### Command line options
 
 You can get a list of all available commands by calling ``wger`` without any
 arguments:
 
-```
-    Available tasks:
-    bootstrap               Performs all steps necessary to bootstrap the
-                            application
-    config-location         Returns the default location for the settings file
-                            and the data folder
-    create-or-reset-admin   Creates an admin user or resets the password for an
-                            existing one
-    create-settings         Creates a local settings file
-    load-fixtures           Loads all fixtures
-    migrate-db              Run all database migrations
-    start                   Start the application using django's built in webserver
-```
+* `bootstrap` Performs all steps necessary to bootstrap the application
+* `config-location` Returns the default location for the settings file
+   and the data folder
+* `create-or-reset-admin` Creates an admin user or resets the password
+   for an existing one
+* `create-settings` Creates a local settings file
+* `load-fixtures` Loads all fixtures
+* `migrate-db` Run all database migrations
+* `start` Start the application using django's built in webserver
 
-You can also get help on a specific command with ``wger <command> --help``.
+To get help on a specific command: ``wger <command> --help``.
 
 
 ## Contact
@@ -108,6 +104,7 @@ didn't behave as you expected. We can't fix what we don't know about, so please
 report liberally. If you're not sure if something is a bug or not, feel free to
 file a bug anyway.
 
+* **discord:** <https://discord.gg/rPWFv6W>
 * **gitter:** <https://gitter.im/wger-project/wger>
 * **issue tracker:** <https://github.com/wger-project/wger/issues>
 * **twitter:** <https://twitter.com/wger_project>

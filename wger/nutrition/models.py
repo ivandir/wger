@@ -108,9 +108,9 @@ class NutritionPlan(models.Model):
         Return a more human-readable representation
         """
         if self.description:
-            return u"{0}".format(self.description)
+            return "{0}".format(self.description)
         else:
-            return u"{0}".format(_("Nutrition plan"))
+            return "{0}".format(_("Nutrition plan"))
 
     def get_absolute_url(self):
         """
@@ -495,7 +495,7 @@ class Ingredient(AbstractSubmissionModel, AbstractLicenseModel, models.Model):
 
             # Send email to administrator
             subject = _('New user submitted ingredient')
-            message = _(u"""The user {0} submitted a new ingredient "{1}".""".format(
+            message = _("""The user {0} submitted a new ingredient "{1}".""".format(
                 request.user.username, self.name))
             mail.mail_admins(subject,
                              message,
@@ -566,9 +566,9 @@ class IngredientWeightUnit(models.Model):
         Return a more human-readable representation
         """
 
-        return u"{0}{1} ({2}g)".format(self.amount if self.amount > 1 else '',
-                                       self.unit.name,
-                                       self.gram)
+        return "{0}{1} ({2}g)".format(self.amount if self.amount > 1 else '',
+                                      self.unit.name,
+                                      self.gram)
 
 
 class Meal(models.Model):
@@ -595,7 +595,7 @@ class Meal(models.Model):
         """
         Return a more human-readable representation
         """
-        return u"{0} Meal".format(self.order)
+        return "{0} Meal".format(self.order)
 
     def get_owner_object(self):
         """
@@ -653,7 +653,7 @@ class BaseMealItem(object):
 
     def get_nutritional_values(self, use_metric=True):
         """
-        Sums the nutrional info for the ingredient in the MealItem
+        Sums the nutritional info for the ingredient in the MealItem
 
         :param use_metric Flag that controls the units used
         """
@@ -741,7 +741,7 @@ class MealItem(BaseMealItem, models.Model):
         """
         Return a more human-readable representation
         """
-        return u"{0}g ingredient {1}".format(self.amount, self.ingredient_id)
+        return "{0}g ingredient {1}".format(self.amount, self.ingredient_id)
 
     def get_owner_object(self):
         """
@@ -807,7 +807,7 @@ class LogItem(BaseMealItem, models.Model):
         """
         Return a more human-readable representation
         """
-        return u"Diary entry for {}, plan {}".format(self.datetime, self.plan.pk)
+        return "Diary entry for {}, plan {}".format(self.datetime, self.plan.pk)
 
     def get_owner_object(self):
         """

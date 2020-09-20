@@ -95,6 +95,7 @@ from wger.manager.models import (
     WorkoutSession
 )
 from wger.nutrition.models import NutritionPlan
+from wger.utils.api_token import create_token
 from wger.utils.generic_views import (
     WgerFormMixin,
     WgerMultiplePermissionRequiredMixin
@@ -456,12 +457,10 @@ def api_key(request):
     try:
         token = Token.objects.get(user=request.user)
     except Token.DoesNotExist:
-        token = False
-    if request.GET.get('new_key'):
-        if token:
-            token.delete()
+        token = None
 
-        token = Token.objects.create(user=request.user)
+    if request.GET.get('new_key'):
+        token = create_token(request.user, request.GET.get('new_key'))
 
         # Redirect to get rid of the GET parameter
         return HttpResponseRedirect(reverse('core:user:api-key'))
